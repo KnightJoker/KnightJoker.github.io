@@ -5,7 +5,14 @@
 <li><p>mutableCopy 方法用于复制对象的可变副本。简单说，mutableCopy 方法总是返回该对象的可修改的副本，即使被复制的对象本身是不可以修改的，调用mutableCopy方法复制出来的副本也是可修改的。</p>
 </li>
 </ul>
-<p>无论如何，copy和mutableCopy 返回的总是原对象的副本，当程序对复制的副本进行修改时，原对象通常不会受到影响。</p>
+<p>无论如何，copy和mutableCopy 返回的总是原对象的副本，当程序对复制的副本进行修改时，原对象通常不会受到影响。不过在这里需要注意，如果我们自定义的类调用copy和mutableCopy 方法来复制副本的时候。这里需要注意的是：</p>
+<ul>
+<li><p>使用copy方法，需要实现NSCopying协议，以及copyWithZone：方法。</p>
+</li>
+<li><p>使用mutableCopy方法，则需要实现NSMutableCopying协议，以及mutableCopyWithZone： 方法。</p>
+</li>
+</ul>
+<p>当程序调用对象的copy方法来复制自身时，程序底层需要调用copyWithZone：方法来完成实际的复制工作，copy返回的实际上就是copyWithZone：方法的返回值；同理有关于mutableCopy。</p>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/05/25/对象复制/" data-id="ciompkqh30000ioim60bdauch" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/05/23/Foundation框架中的常用类/" class="next">Foundation框架中的常用类</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/05/25/对象复制/';
 var disqus_title = '对象复制';
