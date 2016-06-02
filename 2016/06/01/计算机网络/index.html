@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>计算机网络 | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">计算机网络</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">计算机网络</h1><div class="post-meta">Jun 1, 2016<span> | </span><span class="category"><a href="/categories/计算机基础/">计算机基础</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/06/01/计算机网络/" href="/2016/06/01/计算机网络/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>周五就要开始考计算机网络了，趁着这个机会赶紧复（装）习（逼）一下~</p>
 <p>复习顺序很乱，看到哪就记到哪吧，主要以上课的笔记为主，一天的时间应该能整理完毕的。</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h5 id="电路交换、报文交换、分组交换的主要特点与优缺点的比较"><a href="#电路交换、报文交换、分组交换的主要特点与优缺点的比较" class="headerlink" title="电路交换、报文交换、分组交换的主要特点与优缺点的比较"></a>电路交换、报文交换、分组交换的主要特点与优缺点的比较</h5><p><strong>电路交换：</strong>整个报文的比特流连续地从源点直达终点,好像在一个管道中传送, 经过通信路径上的线路资源独占</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h3 id="电路交换、报文交换、分组交换的主要特点与优缺点的比较"><a href="#电路交换、报文交换、分组交换的主要特点与优缺点的比较" class="headerlink" title="电路交换、报文交换、分组交换的主要特点与优缺点的比较"></a>电路交换、报文交换、分组交换的主要特点与优缺点的比较</h3><p><strong>电路交换：</strong>整个报文的比特流连续地从源点直达终点,好像在一个管道中传送, 经过通信路径上的线路资源独占</p>
 <ul>
 <li><p>优点：通信实时性强,适用于交互式会话类通信</p>
 </li>
@@ -21,7 +21,7 @@
 <li><p>缺点：分组在各结点存储转发时需要排队,会造成一定的时延。分组必须携带的 首部(里面有必不可少的控制信息)也造成了一定的开销。很难提供服务质量</p>
 </li>
 </ul>
-<h5 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h5><p>从作用范围：</p>
+<h3 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h3><p>从作用范围：</p>
 <ul>
 <li><p>广域网</p>
 </li>
@@ -39,12 +39,12 @@
 <li><p>专用网</p>
 </li>
 </ul>
-<h5 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h5><p>速率、带宽、吞吐量、时延、时延带宽积、往返时间 （RTT）、利用率<br><br></p>
-<h5 id="网络协议的三要素是什么-各有什么含义"><a href="#网络协议的三要素是什么-各有什么含义" class="headerlink" title="网络协议的三要素是什么?各有什么含义?"></a>网络协议的三要素是什么?各有什么含义?</h5><p><strong>语法:</strong> 数据与控制信息的结构或格式 。</p>
+<h3 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h3><p>速率、带宽、吞吐量、时延、时延带宽积、往返时间 （RTT）、利用率<br><br></p>
+<h3 id="网络协议的三要素是什么-各有什么含义"><a href="#网络协议的三要素是什么-各有什么含义" class="headerlink" title="网络协议的三要素是什么?各有什么含义?"></a>网络协议的三要素是什么?各有什么含义?</h3><p><strong>语法:</strong> 数据与控制信息的结构或格式 。</p>
 <p><strong>语义:</strong>需要发出何种控制信息,完成何种动作以及做出何种响应。 </p>
 <p><strong>同步:</strong> 事件实现顺序的详细说明。</p>
 <p><br></p>
-<h5 id="协议分层的好处-为什么要分层"><a href="#协议分层的好处-为什么要分层" class="headerlink" title="协议分层的好处(为什么要分层?)"></a>协议分层的好处(为什么要分层?)</h5><p>各层之间独立、灵活性好、结构上可分隔开、易于实现和维护、能促进标准化工作</p>
+<h3 id="协议分层的好处-为什么要分层"><a href="#协议分层的好处-为什么要分层" class="headerlink" title="协议分层的好处(为什么要分层?)"></a>协议分层的好处(为什么要分层?)</h3><p>各层之间独立、灵活性好、结构上可分隔开、易于实现和维护、能促进标准化工作</p>
 <p><br></p>
 <h3 id="网络体系结构（重点）"><a href="#网络体系结构（重点）" class="headerlink" title="网络体系结构（重点）"></a>网络体系结构（重点）</h3><p>定义：计算机网络的各层及其协议的集合。（或者：计算机网络及其构件所应完成的功能的精确定义。）</p>
 <p>这里有关于结构分层有三种方法：</p>
@@ -57,19 +57,11 @@
 <li><p>具有五层协议的体系结构：</p>
 </li>
 </ul>
-<pre><code>**物理层**:透明地传输比特流 
-
-**数据链路层**:在相邻结点间的链路上透明地传送帧中的数据 
-
-**网络层**:为网络上不同主机提供通信功能、为分组选择合适的路由 
-
-**运输层**:向两个主机中进程之间的通信提供服务,由于一个主机可同时运行多个进程,运输层还具有复用和分用功能
-
-  **应用层**:为用户应用进程提供服务
-</code></pre><p><br></p>
-<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h5 id="物理层的基本功能及其特点"><a href="#物理层的基本功能及其特点" class="headerlink" title="物理层的基本功能及其特点"></a>物理层的基本功能及其特点</h5><p>在传输媒体上传输比特流,屏蔽掉网络中硬件设备和传输媒体的差异,使上层感觉不 到这些差异;完成并行传输与串行传输方式的转换。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">物理层:透明地传输比特流 </span><br><span class="line">数据链路层:在相邻结点间的链路上透明地传送帧中的数据 </span><br><span class="line">网络层:为网络上不同主机提供通信功能、为分组选择合适的路由 </span><br><span class="line">运输层:向两个主机中进程之间的通信提供服务,由于一个主机可同时运行多个进程,运输层还具有复用和分用功能 	 	应用层:为用户应用进程提供服务</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h3 id="物理层的基本功能及其特点"><a href="#物理层的基本功能及其特点" class="headerlink" title="物理层的基本功能及其特点"></a>物理层的基本功能及其特点</h3><p>在传输媒体上传输比特流,屏蔽掉网络中硬件设备和传输媒体的差异,使上层感觉不 到这些差异;完成并行传输与串行传输方式的转换。</p>
 <p>其特性主要又分为：机械特性、电气特性、功能特性、过程特性</p>
-<h5 id="基本术语的解释"><a href="#基本术语的解释" class="headerlink" title="基本术语的解释"></a>基本术语的解释</h5><ul>
+<h3 id="基本术语的解释"><a href="#基本术语的解释" class="headerlink" title="基本术语的解释"></a>基本术语的解释</h3><ul>
 <li>数据 :运送消息的实体。</li>
 <li>信号 :数据的电气的或电磁的表现。</li>
 <li>模拟信号 :消息的参数的取值是连续的信号 </li>
@@ -83,13 +75,36 @@
 <li>基带信号 :来自信源的基本频带信号</li>
 <li>带通信号 :经过载波调制后的信号</li>
 </ul>
-<h5 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h5><p>能够合并和分解信号,使多个用户可以共享同一信道连到远方的一种通信技术。</p>
+<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><p>能够合并和分解信号,使多个用户可以共享同一信道连到远方的一种通信技术。</p>
 <ol>
 <li><strong>FDM: Frequency Division Multiplexing 频分复用:</strong> 将用于传输信道的总带宽划分成若干 个子频带(或称子信道),每一个子信道传输 1 路信号。所有用户在同样的时间占用不同的带 宽资源。</li>
 <li><strong>TDM:Time Division Multiplexing 时分复用:</strong>采用同一物理连接的不同时段来传输不同的 信号,达到多路传输的目的。所有用户在不同的时间占用相同的频带宽度<br>STDM: Statistic TDM 统计时分复用:一种改进的 TDM,明显提高信道利用率</li>
 <li><strong>WDM: Wavelength Division Multiplexing 波分复用:</strong>光的频分复用<br>DWDM—Dense WDM 密集波分复用:在一根光纤上复用 80 路或更多路数的光载波信号 </li>
 <li><strong>CDM: Code Division Multiplexing 码分复用:</strong> CDMA:Code Division Multiple Access 码分多址:每个用户可以在同样的时间使用相同的频带 进行通信,但各用户使用经过特殊挑选的不同码型,因此各用户之间不会造成干扰。 码片(chip): CDMA 中每一个比特时间再划分的 m 个短的间隔</li>
 </ol>
+<p><br></p>
+<p>#数据链路层</p>
+<h3 id="数据链路（逻辑电路）与链路（物理链路）的区别："><a href="#数据链路（逻辑电路）与链路（物理链路）的区别：" class="headerlink" title="数据链路（逻辑电路）与链路（物理链路）的区别："></a>数据链路（逻辑电路）与链路（物理链路）的区别：</h3><ul>
+<li><p><strong>物理链路:</strong>从一个结点到相邻结点的一段物理线路,中间无其他结点</p>
+</li>
+<li><p><strong>逻辑链路:</strong>在物理链路的基础上加 必要的通信协议</p>
+</li>
+</ul>
+<h3 id="数据链路层协议要解决的-3-个基本问题："><a href="#数据链路层协议要解决的-3-个基本问题：" class="headerlink" title="数据链路层协议要解决的 3 个基本问题："></a>数据链路层协议要解决的 3 个基本问题：</h3><p>封装成帧、透明传输、差错检测</p>
+<h3 id="PPP协议的组成以及PPP帧格式"><a href="#PPP协议的组成以及PPP帧格式" class="headerlink" title="PPP协议的组成以及PPP帧格式"></a>PPP协议的组成以及PPP帧格式</h3><p><strong>PPP协议组成</strong>主要有三个部分：</p>
+<ol>
+<li>一个将IP数据报封装到串行链路的方法。</li>
+</ol>
+<ol>
+<li>一个用来建立、配置和测试数据链路连接的<strong>链路控制协议LCP</strong></li>
+</ol>
+<ol>
+<li>一套网络控制协议NCP</li>
+</ol>
+<p><strong>ppp帧格式：</strong></p>
+<p>这里主要也分为三个部分：首部、信息部分以及尾部</p>
+<p>用一张图片来表示吧，更容易理解记忆：</p>
+<p><img src="" alt="PPP帧格式"></p>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/06/01/计算机网络/" data-id="ciox448es0000v7imnezvqtxw" class="article-share-link">分享到</a><div class="tags"><a href="/tags/计算机网络/">计算机网络</a></div><div class="post-nav"><a href="/2016/05/30/GitFlow/" class="next">基于git的源代码管理模型——git flow</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/06/01/计算机网络/';
 var disqus_title = '计算机网络';
