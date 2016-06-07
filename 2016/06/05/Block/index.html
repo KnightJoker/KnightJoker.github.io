@@ -3,7 +3,9 @@
 <p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/%E6%97%A5%E7%8B%97.png?raw=true" alt="日了狗"></p>
 <p>好了，废话就扯这么多，下面开始正事，顺便感谢九月姐姐孜孜不倦的教诲~</p>
 <p>这里主要会讲解block在iOS(Objective­ - C)中的基本知识,以及普及一下 block的常用语法</p>
-<h1 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h1><p>Block 本质上是和其他变量类似。不同的是，Block 存储的数据是一个函数体。使用Block，你可以像调用其他标准函数一样，传入参数数，并得到返回值。<br>脱字符（^）是Block的语法标记。按照我们熟悉的参数语法规约所定义的返回值以及Block的主体（也就是可以执行的代码）。下图是如何把块变量赋值给一个变量的语法讲解:</p>
+<h1 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h1><p>Block 本质上是和其他变量类似。不同的是，Block 存储的数据是一个函数体。使用Block，你可以像调用其他标准函数一样，传入参数数，并得到返回值。</p>
+<p>这里也可以把它理解为一个匿名函数，至于匿名函数顾名思义就是不带名字的函数，Objective - C中的Block则可以用指针来直接调用一个函数，但虽说如此我们还是需要知道指针的名称。（关于这点，我就特别想吐槽了啊，虽然相当于匿名函数，但是这个指针名称还是必须的啊~！～！～～）</p>
+<p>脱字符（^）是Block的语法标记。按照我们熟悉的参数语法规约所定义的返回值以及Block的主体（也就是可以执行的代码）。下图是如何把块变量赋值给一个变量的语法讲解:</p>
 <p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/block.png?raw=true" alt="Block 的声明"></p>
 <p>在这个例子中，myBlock是一个Block变量，它接受一个int类型的参数，返回一个int类型的值。</p>
 <p>由此我们在顺便介绍一下<strong>Block 的语法</strong></p>
@@ -11,7 +13,8 @@
 <h3 id="block-作为类的成员属性（property）"><a href="#block-作为类的成员属性（property）" class="headerlink" title="block 作为类的成员属性（property）"></a>block 作为类的成员属性（property）</h3><p><code>@property (nonatomic, copy)returnType (^blockName)(parameters);</code></p>
 <h3 id="block-作为函数参数-（method-parameter）"><a href="#block-作为函数参数-（method-parameter）" class="headerlink" title="block 作为函数参数 （method parameter）"></a>block 作为函数参数 （method parameter）</h3><p><code>- (void)someMethodThatTakesABlock:(returnType (^)(parameterTypes))blockName</code></p>
 <h3 id="调用包括block参数的函数-（argument-to-a-method-call）"><a href="#调用包括block参数的函数-（argument-to-a-method-call）" class="headerlink" title="调用包括block参数的函数 （argument to a method call）"></a>调用包括block参数的函数 （argument to a method call）</h3><p><code>[someObject somethodThatTakesABlock:^returnType(parameters{...})];</code></p>
-<h3 id="使用typedef-定义block类型-（typedef）"><a href="#使用typedef-定义block类型-（typedef）" class="headerlink" title="使用typedef 定义block类型 （typedef）"></a>使用typedef 定义block类型 （typedef）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typedef returnType (^TypeName)(parameterTypes);</span><br><span class="line">TypeName blockName = ^returnType(parameters)&#123;...&#125;;</span><br></pre></td></tr></table></figure></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/06/05/Block/" data-id="cip2hzte40000cx3jqxhxm6q3" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/06/04/UILabel/" class="next">UILabel 详细介绍</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+<h3 id="使用typedef-定义block类型-（typedef）"><a href="#使用typedef-定义block类型-（typedef）" class="headerlink" title="使用typedef 定义block类型 （typedef）"></a>使用typedef 定义block类型 （typedef）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">typedef returnType (^TypeName)(parameterTypes);</span><br><span class="line">TypeName blockName = ^returnType(parameters)&#123;...&#125;;</span><br></pre></td></tr></table></figure>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/06/05/Block/" data-id="cip2hzte40000cx3jqxhxm6q3" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/06/04/UILabel/" class="next">UILabel 详细介绍</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/06/05/Block/';
 var disqus_title = 'Block';
 var disqus_url = 'http://dbcxl.com/2016/06/05/Block/';
