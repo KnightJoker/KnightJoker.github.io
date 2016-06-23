@@ -3,7 +3,98 @@
 <p>在你个人的<code>ViewController.m</code> 中修改 <code>loadView</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">- (void)loadView &#123;</span><br><span class="line"></span><br><span class="line">	CGRect frame = [UIScreen mainScreen].bounds;</span><br><span class="line">	UIView *backgroundView = [[UIView alloc] initWithFrame:frame];</span><br><span class="line">	</span><br><span class="line">	CGRect textFieldRect = CGRectMake(20,20,100,20);</span><br><span class="line">	UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];</span><br><span class="line">	</span><br><span class="line">	//设置UIText对象的边框样式，便于查看</span><br><span class="line">	textField.borderStyle = UITextBorderStyleRoundedRect;</span><br><span class="line">	[backgroundView addSubview:textField];</span><br><span class="line">	</span><br><span class="line">	self.view = backgroundView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>构建并且运行应用，View 页面便会显示一个文本框，这个文本框便是刚刚添加的UITextField 对象。点击文本框，这时候屏幕底部便会弹出键盘，用于向文本框中输入文字。</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/06/21/UITextField/" data-id="cipp4gkxg0000pkimi8hpa4l0" class="article-share-link">分享到</a><div class="tags"><a href="/tags/UI控件/">UI控件</a></div><div class="post-nav"><a href="/2016/06/19/drawRect/" class="next">在视图上面自定义绘图</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+<p>这里根据官方<a href="https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextField_Class/" target="_blank" rel="external">文档</a>，其属性大致可以分为以下几种：</p>
+<p>&gt;</p>
+<p><strong>1、创建文本输入框</strong></p>
+<p> 　　<code>UITextField*textField=[[UITextField alloc]initWithFrame:CGRectMake(10, 10, 200, 20)];</code></p>
+<p><strong>2、设置边框样式</strong></p>
+<p>　　<code>textField.borderStyle = UITextBorderStyleRoundedRect;//圆角</code></p>
+<p>可选属性：</p>
+<pre><code>   UITextBorderStyleNone,无边框
+
+UITextBorderStyleLine,有边框
+
+UITextBorderStyleBezel,有边框和阴影
+
+UITextBorderStyleRoundedRect圆角
+</code></pre><p><strong>3、设置背景颜色</strong></p>
+<p>　　<code>textField.backgroundColor = [UIColor blueColor];</code></p>
+<p><strong>4、设置背景图片</strong></p>
+<p>　　<code>textField.background=[UIImage imageNamed:@&quot;test.png&quot;];</code></p>
+<p><strong>5、提示文字</strong></p>
+<p>　　<code>textField.placeholder = @&quot;请输入&quot;;</code></p>
+<p><strong>6、设置和读取文字内容</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　textField.text = @”hello”;</span><br><span class="line"></span><br><span class="line">　　NSString * str = textField.text;</span><br></pre></td></tr></table></figure>
+<p><strong>7、设置字体</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　[textField setFont:[UIFont fontWithName:@&quot;Arial&quot; size:30]];</span><br><span class="line"></span><br><span class="line">　　NSLog(@&quot;%@&quot;, [UIFont familyNames]); 查看字体集</span><br></pre></td></tr></table></figure>
+<p>　</p>
+<p><strong>8、密文输入</strong></p>
+<p>　　<code>textField.secureTextEntry = YES;</code> </p>
+<p><strong>9、键盘类型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">　　textField.keyboardType = UIKeyboardTypeNumberPad;  数字键</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeDefault,                   当前键盘（默认）</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeASCIICapable,          字母输入键</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeNumbersAndPunctuation,  数字和符号</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeURL,                       URL键盘</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeNumberPad,             数字键盘</span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypePhonePad,               电话号码输入键盘   </span><br><span class="line"></span><br><span class="line">　　UIKeyboardTypeEmailAddress,          邮件地址输入键盘</span><br></pre></td></tr></table></figure>
+<p><strong>10、键盘风格</strong></p>
+<p>　　<code>textView.keyboardAppearance=UIKeyboardAppearanceDefault；</code></p>
+<p>　　可选属性</p>
+<p>　　UIKeyboardAppearanceDefault， 默认外观，浅灰色</p>
+<p>　　UIKeyboardAppearanceAlert，     深灰 石墨色</p>
+<p><strong>11、再次编辑时是否清空之前内容；默认NO</strong></p>
+<p>　　<code>textField.clearsOnBeginEditing = YES</code></p>
+<p><strong>12、对齐方式</strong></p>
+<p>垂直对齐：</p>
+<p>　　<code>textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter</code> </p>
+<p>可选属性：</p>
+<pre><code>UIControlContentVerticalAlignmentCenter  居中对齐
+
+UIControlContentVerticalAlignmentTop    顶部对齐，默认是顶部对齐
+
+UIControlContentVerticalAlignmentBottom 底部对齐
+
+UIControlContentVerticalAlignmentFill    完全填充
+</code></pre><p>水平对齐：</p>
+<pre><code>`textField.textAlignment = UITextAlignmentCenter;`
+</code></pre><p>可选属性：</p>
+<pre><code>UITextAlignmentLeft，左对齐，默认是左对齐
+
+UITextAlignmentCenter，
+
+UITextAlignmentRight，右对齐 
+</code></pre><p><strong>13、 设置滚动</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">textField.font = [UIFont systemFontOfSize:30]; //设置文字大小</span><br><span class="line"></span><br><span class="line">textField.adjustsFontSizeToFitWidth = YES; //默认是NO  YES当充满边框时，文字会缩小，当小到一定程度时仍然会滚动；自适应宽度；</span><br><span class="line"></span><br><span class="line">//设置滚动时最小字号，与滚动相关，要比设置的字体小，否则没有意义，没有设置这一项文字也会缩小和滚动</span><br><span class="line"></span><br><span class="line">textField.minimumFontSize = 20;</span><br></pre></td></tr></table></figure>
+<p><strong>14、设置return键</strong></p>
+<p><code>textField.returnKeyType = UIReturnKeyGoogle;search</code></p>
+<p>可选属性</p>
+<pre><code>UIReturnKeyDefault, 默认 灰色按钮，标有Return
+
+UIReturnKeyGo,      标有Go的蓝色按钮
+
+UIReturnKeyGoogle,标有Google的蓝色按钮，用语搜索
+
+UIReturnKeyJoin,标有Join的蓝色按钮
+
+UIReturnKeyNext,标有Next的蓝色按钮
+
+UIReturnKeyRoute,标有Route的蓝色按钮
+
+UIReturnKeySearch,标有Search的蓝色按钮
+
+UIReturnKeySend,标有Send的蓝色按钮
+
+UIReturnKeyYahoo,标有Yahoo的蓝色按钮
+
+UIReturnKeyYahoo,标有Yahoo的蓝色按钮
+
+UIReturnKeyEmergencyCall, 紧急呼叫按钮
+</code></pre><p><strong>15、设置输入自动纠正模式</strong></p>
+<p><code>textField.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;</code></p>
+<p>可选属性：</p>
+<pre><code>UITextAutocapitalizationTypeNone, 不自动纠正
+
+UITextAutocapitalizationTypeWords,  单词首字母大写
+
+UITextAutocapitalizationTypeSentences,  句子的首字母大写
+
+UITextAutocapitalizationTypeAllCharacters, 所有字母都大写
+</code></pre></div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/06/21/UITextField/" data-id="cipp4gkxg0000pkimi8hpa4l0" class="article-share-link">分享到</a><div class="tags"><a href="/tags/UI控件/">UI控件</a></div><div class="post-nav"><a href="/2016/06/19/drawRect/" class="next">在视图上面自定义绘图</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/06/21/UITextField/';
 var disqus_title = '文本输入';
 var disqus_url = 'http://dbcxl.com/2016/06/21/UITextField/';
