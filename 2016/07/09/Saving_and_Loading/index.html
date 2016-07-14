@@ -2,7 +2,7 @@
 <p><strong>固化</strong>是由iOS SDK 提供的一种保存和读取对象的机制。当我们的应用程序固化某一个对象的时候，会将该对象的所有属性存入指定的文件。然而当程序解固某个对象的时候，会从指定的文件读取相应的数据，然后根据数据还原对象。</p>
 <p>下面这里以具体的代码为例子：</p>
 <p>使用固化功能需要遵守<nscoding>协议，并且实现两个方法：</nscoding></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)encodeWithCoder:(NSCoder *)aCoder;  //对数据进行编码</span><br><span class="line">- (instancetype)initWithCoder:(NSCoder *)aDecoder;  //还原上面的编码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (void)encodeWithCoder:(NSCoder *)aCoder;  //对数据进行编码</span><br><span class="line">- (instancetype)initWithCoder:(NSCoder *)aDecoder;  //还原数据的编码</span><br></pre></td></tr></table></figure>
 <p>并且创建一个Model类，有如下属性：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@interface model : NSObject &lt;NSCoding&gt;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, copy) NSString * name;</span><br><span class="line">@property (nonatomic, copy) NSString * detail;</span><br><span class="line">@property (nonatomic, assign) NSInteger ID;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <p>并且在Model类中实现上述的两种方法：</p>
