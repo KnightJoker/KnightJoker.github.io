@@ -13,15 +13,15 @@
 <h1 id="NSURLSession"><a href="#NSURLSession" class="headerlink" title="NSURLSession"></a>NSURLSession</h1><p>NSURLSession 以及与它相关的类为我们提供了下载内容的 API，这个 API 提供了一系列的代理方法来支持身份认证，并且支持后台下载。</p>
 <p>使用 NSURLSession 来进行 HTTP 请求并且获得数据总共有五个步骤：</p>
 <ol>
-<li><p>实例化一个 NSURLRequest/NSMutableURLRequest，设置 URL</p>
+<li><p>实例化一个 <code>NSURLRequest/NSMutableURLRequest</code>，设置 URL</p>
 </li>
-<li><p>通过 - sharedSession 方法获取 NSURLSession</p>
+<li><p>通过 - <code>sharedSession:</code> 方法获取 NSURLSession</p>
 </li>
-<li><p>在 session 上调用 - dataTaskWithRequest:completionHandler: 方法返回一个 NSURLSessionDataTask</p>
+<li><p>在 session 上调用 - <code>dataTaskWithRequest:completionHandler:</code>方法返回一个 NSURLSessionDataTask</p>
 </li>
 <li><p>向 data task 发送消息 - resume，开始执行这个任务</p>
 </li>
-<li><p>在 completionHandler 中将数据编码，返回字符串</p>
+<li><p>在<code>completionHandler</code> 中将数据编码，返回字符串</p>
 </li>
 </ol>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/07/19/AFNetworking/" data-id="ciqtj0d0x000036imlks4p789" class="article-share-link">分享到</a><div class="tags"><a href="/tags/AFNetworking/">AFNetworking</a></div><div class="post-nav"><a href="/2016/07/09/Saving_and_Loading/" class="next">保存、读取数据</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
