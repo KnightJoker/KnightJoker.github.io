@@ -1,33 +1,28 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>浅析AFNetworking（一） | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">浅析AFNetworking（一）</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">浅析AFNetworking（一）</h1><div class="post-meta">Jul 19, 2016<span> | </span><span class="category"><a href="/categories/iOS/">iOS</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/07/19/AFNetworking/" href="/2016/07/19/AFNetworking/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p><img src="https://camo.githubusercontent.com/1560be050811ab73457e90aee62cd1cd257c7fb9/68747470733a2f2f7261772e6769746875622e636f6d2f41464e6574776f726b696e672f41464e6574776f726b696e672f6173736574732f61666e6574776f726b696e672d6c6f676f2e706e67" alt="AFNetworking"></p>
-<blockquote>
-<p>Perhaps the most important feature of all, however, is the amazing community of developers who use and contribute to AFNetworking every day. AFNetworking powers some of the most popular and critically-acclaimed apps on the iPhone, iPad, and Mac.</p>
-</blockquote>
-<p>随着4G网络的普及，手机移动数据的加速，AFNetworking 可以说是如今 iOS 开发中不可缺少的组件之一。</p>
-<p>在这里主要了解两个问题：</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>pug 使用教程 | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">pug 使用教程</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">pug 使用教程</h1><div class="post-meta">Sep 12, 2016<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/09/12/pug/" href="/2016/09/12/pug/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p><em>一些写在前面的话，如果大家有什么看不懂，我有什么地方写错的，可以直接<a href="cbearxl@gmail.com">邮件</a>私戳我。不要问我，有什么问题可以问问神奇的海螺，问我，我也不知道o(╯□╰)o</em></p>
+<p>以下文章有关学习：</p>
 <ul>
-<li><p>如何使用 NSURLSession 发出 HTTP 请求</p>
+<li><p><a href="google.com">谷歌</a></p>
 </li>
-<li><p>如何使用 AFNetworking 发出 HTTP 请求</p>
+<li><p><a href="https://pugjs.org/api/getting-started.html" target="_blank" rel="external">Pug官方文档</a></p>
+</li>
+<li><p><a href="https://github.com/pugjs/pug" target="_blank" rel="external">Pug的Github</a></p>
 </li>
 </ul>
-<h1 id="NSURLSession"><a href="#NSURLSession" class="headerlink" title="NSURLSession"></a>NSURLSession</h1><p>NSURLSession 以及与它相关的类为我们提供了下载内容的 API，这个 API 提供了一系列的代理方法来支持身份认证，并且支持后台下载。</p>
-<p>使用 NSURLSession 来进行 HTTP 请求并且获得数据总共有五个步骤：</p>
-<ol>
-<li><p>实例化一个 <code>NSURLRequest/NSMutableURLRequest</code>，设置 URL</p>
-</li>
-<li><p>通过 - <code>sharedSession:</code> 方法获取 NSURLSession</p>
-</li>
-<li><p>在 session 上调用 - <code>dataTaskWithRequest:completionHandler:</code>方法返回一个 NSURLSessionDataTask</p>
-</li>
-<li><p>向 data task 发送消息 - resume，开始执行这个任务</p>
-</li>
-<li><p>在<code>completionHandler</code> 中将数据编码，返回字符串。</p>
-</li>
-</ol>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/07/19/AFNetworking/" data-id="ciqtj0d0x000036imlks4p789" class="article-share-link">分享到</a><div class="tags"><a href="/tags/AFNetworking/">AFNetworking</a></div><div class="post-nav"><a href="/2016/09/08/Properties/" class="pre">属性(Properties)</a><a href="/2016/07/09/Saving_and_Loading/" class="next">保存、读取数据</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
-var disqus_identifier = '2016/07/19/AFNetworking/';
-var disqus_title = '浅析AFNetworking（一）';
-var disqus_url = 'http://dbcxl.com/2016/07/19/AFNetworking/';
+<p>好了以下开始正文~</p>
+<h1 id="配置项目环境"><a href="#配置项目环境" class="headerlink" title="配置项目环境"></a>配置项目环境</h1><h5 id="Pug安装编译"><a href="#Pug安装编译" class="headerlink" title="Pug安装编译"></a>Pug安装编译</h5><p><code>$ npm install -g pug</code></p>
+<p>之后运行<code>pug --version</code>正确显示版本号则表示安装成功。请注意，为了方便，这里是全局安装，Mac和Linux用户请在该命令前加<code>sudo</code>。在具体的项目开发时，也可以选择仅在目前项目下安装（去掉-g）。</p>
+<p>这里如果遇见了</p>
+<p><code>bash: pug: command not found</code></p>
+<p>那么就是你的插入♂方式的不对，这样你就需要</p>
+<p><code>npm install -g pug-cli</code></p>
+<p>OK~事情完美解决，具体原因，Github给出的解释是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You need to install pug-cli. The CLI was separated from the core library as part of this release.</span><br></pre></td></tr></table></figure>
+<p>然后再打开命令行，就可以将你文件中的.pug文件编译成为大家熟悉的.html文件了~</p>
+<p><code>$ pug --pretty XX/XX.pug</code>    这里的XX指的是你的文件名</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/09/12/pug/" data-id="ciszgtv480000whim4rxg0oc8" class="article-share-link">分享到</a><div class="tags"><a href="/tags/pug/">pug</a></div><div class="post-nav"><a href="/2016/09/08/Properties/" class="next">属性(Properties)</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+var disqus_identifier = '2016/09/12/pug/';
+var disqus_title = 'pug 使用教程';
+var disqus_url = 'http://dbcxl.com/2016/09/12/pug/';
 (function() {
   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
   dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
