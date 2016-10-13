@@ -56,6 +56,23 @@
 <p>比如一个B类地址：210.30.109.134。一般情况下，这个IP地址的第一部分（210.30）就是网络号，而第二部分(209)就是子网号，第三部分(134)就是主机号。</p>
 <p>至于有多少位代表子网号这个问题上，这没有一个硬性的规定，取而代之的则是子网掩码，校园网相信大多数人都用过，在校园网的设定里面有一个255.255.255.0的东西，这就是子网掩码。子网掩码是由32bit的二进制数字序列,形式为是一连串的1和一连串的0，例如：255.255.255.0(二进制就是11111111.11111111.11111111.00000000)对于刚才的那个B类地址，因为210.30是网络号，那么后面的109.134就是子网号和主机号的组合，又因为子网掩码只有后八bit为0，所以主机号就是IP地址的后八个bit，就是134，而剩下的就是子网号码－－109。 </p>
 <h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>ARP（地址解析）协议是一种解析协议，本来主机是完全不知道这个IP对应的是哪个主机的哪个接口，当主机要发送一个IP包的时候，会首先查一下自己的ARP高速缓存（就是一个IP-MAC地址对应表缓存），如果查询的IP－MAC值对不存在，那么主机就向网络发送一个ARP协议广播包，这个广播包里面就有待查询的IP地址，而直接收到这份广播的包的所有主机都会查询自己的IP地址，如果收到广播包的某一个主机发现自己符合条件，那么就准备好一个包含自己的MAC地址的ARP包传送给发送ARP广播的主机，而广播主机拿到ARP包后会更新自己的ARP缓存（就是存放IP-MAC对应表的地方）。发送广播的主机就会用新的ARP缓存数据准备好数据链路层的的数据包发送工作。</p>
+<h3 id="RARP协议"><a href="#RARP协议" class="headerlink" title="RARP协议"></a>RARP协议</h3><p>略</p>
+<h3 id="IMCP协议介绍"><a href="#IMCP协议介绍" class="headerlink" title="IMCP协议介绍"></a>IMCP协议介绍</h3><p>刚刚在介绍IP协议的时候说到，它并不是一个可靠的协议，它不保证数据被送达，那么，自然的，保证数据送达的工作应该由其他的模块来完成。其中一个重要的模块就是<strong>ICMP(网络控制报文)</strong>协议。</p>
+<p>这里我也就简单的介绍一下ICMP协议，其主要是分为两大类：</p>
+<ul>
+<li><p>查询报文</p>
+<ol>
+<li>PING查询</li>
+<li>子网掩码查询</li>
+<li>时间戳查询（可以用作同步时间）</li>
+</ol>
+</li>
+<li><p>差错报文</p>
+<ol>
+<li>这里主要产生在数据传送发生错误的时候。</li>
+</ol>
+</li>
+</ul>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/10/12/InternetReview/" data-id="ciu6p1cuh0000bhimwh2n9uri" class="article-share-link">分享到</a><div class="tags"><a href="/tags/TCP-IP/">TCP/IP</a></div><div class="post-nav"><a href="/2016/09/28/styleGuide/" class="next">Objective-C Style Guide</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/10/12/InternetReview/';
 var disqus_title = 'TCP/IP学习笔记（一）';
