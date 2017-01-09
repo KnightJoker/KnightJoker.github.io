@@ -60,7 +60,39 @@ for (int i = 0; i &lt; j; i++) { }
 
 枚举可参考上述常量或宏的方式来定义。
 </code></pre><p>typedef enum {<br>    ENUM_APPID_MOOD = 311, //说说 ENUM_APPID_BLOG = 2, //日志 ENUM_APPID_PHOTO = 4, //相册     ENUM_APPID_SHARE = 202, //分享<br>} ENUM_APPID</p>
-<p>```<br>• 注释<br>文件注释:以版权信息作为文件头部,开始每一个文件,后接文件内容的描述。(xcode 在生成文件时, 会自动加上)<br>声明注释:每个接口、类别以及协议应该注释,一描述它的目的及作用。<br>最佳实践<br>• 使用 #import 引入 Ojbective-C 和 Ojbective-C++头文件,使用 #include 引入 C 和 C++头。 • 在初始化方法中,不要将变量初始化为“0”或“nil”,那是多余的。<br>• Objective-C 中,BOOL 被定义为 unsigned char,这意味着除了 YES (1) 和 NO (0)外它还可以是 其他值。禁止直接将 BOOL 和 YES/NO 比较,禁止将 int 直接转换(cast or convert)为 BOOL。<br>• Delegate Pattern(委托模式),delegate 对象使用 assign,禁止使用 retain。因为 retain 会导 致循环索引导致内存泄露 。<br>• Model/View/Controller(MVC模式),分离业务逻辑和展现逻辑。扩展模式 Model/Manger/View/Controller ,利于复用业务逻辑。<br>• 关于 pushViewController 的使用。 B – C<br>A – &lt;<br>B – D<br>当 B 模块是通用模块,例如 UIImagePickerController ,是以一个独立的功能组件存在时,如果 需要从 B 模块进入其他模块,正确的做法是:利用 delegate 机制,将数据从该通用模块回调出来 ,再 在调用者 Controller 中进行 pushViewController 操作。<br>如果从 A 模块到 B 模块再到其他模块 ,是一整个固定的流程 ,例如从注册页到初始化页再到主页 , 这是一个固定的业务流程,B 模块一般不会成为独立组件,则应该在 B 模块中直接进行 pushViewController 操作。<br>• 关于 viewDidLoad、viewDidUnload、dealloc、didReceiveMemoryWarning 的使用。 (待定)<br>• 关于函数分类整理。<br>不同分类的函数组之间用 #pragma mark - <em>**</em> 标注。 init、dealloc、viewDidLoad、viewDidUnload、didReceiveMemoryWarning 函数,应归类到一起。 viewWillAppear、viewDidAppear、viewWillDisappear、viewDidDisappear 函数,应归类到一起。 公共函数和私有函数应分别归类,公共函数应加上完整注释。<br>• 善用分类 (category)和扩展(Extension) 主类中提供对外接口(公共函数 ),对不同功能的函数多使用分类 QZURLCache.h<br>QZURLCache.m<br>QZURLCache+Private.h<br>QZURLCache+Private.m<br>QZURLCache+Helper.h<br>(category)使代码结构清晰。<br>QZURLCache+Helper.m QZURLCache+Delegate.h QZURLCache+Delegate.m QZURLCache+Reachability.h QZURLCache+Reachability.m<br>在头文件中提供对外接口(公共函数 ),在实现文件中使用扩展(Extension)声明私有函数,降低头文 件复杂度,增强可读性。</p>
+<pre><code>- 注释
+
+文件注释:以版权信息作为文件头部,开始每一个文件,后接文件内容的描述。(xcode 在生成文件时, 会自动加上)
+
+声明注释:每个接口、类别以及协议应该注释,一描述它的目的及作用。
+
+&lt;br&gt;
+# 最佳实践
+
+- 使用 #import 引入 Ojbective-C 和 Ojbective-C++头文件,使用 #include 引入 C 和 C++头。 
+
+- 在初始化方法中,不要将变量初始化为“0”或“nil”,那是多余的。
+
+- Objective-C 中,BOOL 被定义为 unsigned char,这意味着除了 YES (1) 和 NO (0)外它还可以是 其他值。禁止直接将 BOOL 和 YES/NO 比较,禁止将 int 直接转换(cast or convert)为 BOOL。
+
+- Delegate Pattern(委托模式),delegate 对象使用 assign,禁止使用 retain。因为 retain 会导 致循环索引导致内存泄露 。
+
+- Model/View/Controller(MVC模式),分离业务逻辑和展现逻辑。扩展模式 Model/Manger/View/Controller ,利于复用业务逻辑。
+
+- 关于 pushViewController 的使用。
+</code></pre><pre><code>B -- C
+</code></pre><p>A – &lt;<br>        B – D</p>
+<pre><code>
+当 B 模块是通用模块,例如 UIImagePickerController ,是以一个独立的功能组件存在时,如果 需要从 B 模块进入其他模块,正确的做法是:利用 delegate 机制,将数据从该通用模块回调出来 ,再 在调用者 Controller 中进行 pushViewController 操作。
+
+如果从 A 模块到 B 模块再到其他模块 ,是一整个固定的流程 ,例如从注册页到初始化页再到主页 , 这是一个固定的业务流程,B 模块一般不会成为独立组件,则应该在 B 模块中直接进行 pushViewController 操作。
+
+- 关于函数分类整理。
+不同分类的函数组之间用 #pragma mark - **** 标注。 `init、dealloc、viewDidLoad、viewDidUnload、didReceiveMemoryWarning 函数`,应归类到一起。`viewWillAppear、viewDidAppear、viewWillDisappear、viewDidDisappear 函数`,应归类到一起。 
+公共函数和私有函数应分别归类,公共函数应加上完整注释。
+
+- 善用分类 (category)和扩展(Extension) 主类中提供对外接口(公共函数 ),对不同功能的函数多使用分类(category)使代码结构清晰。
+</code></pre><p>QZURLCache.h<br>QZURLCache.m<br>QZURLCache+Private.h<br>QZURLCache+Private.m<br>QZURLCache+Helper.h<br>QZURLCache+Helper.m<br>QZURLCache+Delegate.h<br>QZURLCache+Delegate.m<br>QZURLCache+Reachability.h<br>QZURLCache+Reachability.m<br>```<br>在头文件中提供对外接口(公共函数 ),在实现文件中使用扩展(Extension)声明私有函数,降低头文 件复杂度,增强可读性。</p>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/09/28/styleGuide/" data-id="cixpjr8yx0030d3imc87xm05n" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Style-Guide/">Style Guide</a></div><div class="post-nav"><a href="/2016/10/12/InternetReview/" class="pre">TCP/IP学习笔记（一）</a><a href="/2016/09/22/BugFix/" class="next">Undefined symbols for architecture x86_64等的完整解决方案</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/09/28/styleGuide/';
 var disqus_title = 'Objective-C Style Guide';
