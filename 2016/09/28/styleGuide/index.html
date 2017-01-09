@@ -1,4 +1,66 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Objective-C Style Guide | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Objective-C Style Guide</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Objective-C Style Guide</h1><div class="post-meta">Sep 28, 2016<span> | </span><span class="category"><a href="/categories/iOS/">iOS</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/09/28/styleGuide/" href="/2016/09/28/styleGuide/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>这里的规范主要出自<a href="https://google.github.io/styleguide/objcguide.xml" target="_blank" rel="external">Google</a> 和 <a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html" target="_blank" rel="external">Apple</a></p>
+<h1 id="编码风格"><a href="#编码风格" class="headerlink" title="编码风格"></a>编码风格</h1><ul>
+<li>方法声明与定义</li>
+</ul>
+<p>方法名采用 Camel 命名法,第一个单词首字母小写,后续单词首字母大写。<br>在 - 和 返回值 之间留1个空格,指针类型 和 * 之间留1个空格。<br>if、for 等关键字后面留 1 个空格,操作符与操作数之间留 1 个空格,左括号前面留 1 个空格。</p>
+<pre><code> - (void)doSomethingWithParam:(NSString *)arg {
+if (i &lt; j) {
+}
+for (int i = 0; i &lt; j; i++) { }
+}
+</code></pre><p>多参数太多,一行不足以显示,则分行显示,以冒号对齐。</p>
+<pre><code>- (void)doSomethingWithParam:(NSString *)arg1 
+
+                   andParam2:(NSInteger)arg2 
+
+                   andParam3:(NSDictionary *)arg3{
+//....
+}
+</code></pre><ul>
+<li>方法调用 所有参数应在同一行中,或者每个参数占用一行且使用冒号对齐。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[myObject doFooWith:arg1 name:arg2 error:arg3];</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[myObject doFooWith:arg1               name:arg2              error:arg3];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类声明与定义</li>
+</ul>
+<p>类名第一个单词首字母大写,后续单词首字母大写。</p>
+<p>类名前面留 1 个空格,冒号左右各留 1 个空格,多协议间逗号后面留 1 个空格。</p>
+<pre><code>@interface MyProtocoledClass : NSObject&lt;NSWindowDelegate, NSApplicationDelegate&gt; {
+
+@private
+    //.... 
+
+}
+@end
+</code></pre><ul>
+<li>属性声明与定义</li>
+</ul>
+<p>同方法命名规则,第一个单词首字母小写。</p>
+<p>Getter 的方法名和变量名应相同。 Setter 方法小写 set 为前缀</p>
+<p>@property 和修饰符左括号间留 1 个空格,各修饰符间逗号后面留 1 个空格,修饰符右括号和属性类 型间留 1 个空格。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@property (nonatomic, assign) NSString *titl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>变量声明与定义</li>
+</ul>
+<p>同方法命名规则,第一个单词首字母小写。</p>
+<p>为了区别局部变量和属性调用 (self.title) ,成员变量采用 _前缀。</p>
+<pre><code>@interface MyProtocoledClass : NSObject&lt;NSWindowDelegate, NSApplicationDelegate&gt; {
+    NSString *_memberVariable; 
+}
+@end
+</code></pre><ul>
+<li>常量和宏声明与定义</li>
+</ul>
+<p>常量名以小写字母 k 开头,使用混合大小写的格式来分隔单词,如 : </p>
+<pre><code>static const NSInteger kInvalidHandle = 0。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">宏定义全程大写字母,每单词用下划线分割,如 :</span><br><span class="line">```#define MAX_NUM_OF_FEED_CACHE 50</span><br></pre></td></tr></table></figure>
+
+
+枚举可参考上述常量或宏的方式来定义。
+</code></pre><p>typedef enum {<br>    ENUM_APPID_MOOD = 311, //说说 ENUM_APPID_BLOG = 2, //日志 ENUM_APPID_PHOTO = 4, //相册     ENUM_APPID_SHARE = 202, //分享<br>} ENUM_APPID</p>
+<p>```<br>• 注释<br>文件注释:以版权信息作为文件头部,开始每一个文件,后接文件内容的描述。(xcode 在生成文件时, 会自动加上)<br>声明注释:每个接口、类别以及协议应该注释,一描述它的目的及作用。<br>最佳实践<br>• 使用 #import 引入 Ojbective-C 和 Ojbective-C++头文件,使用 #include 引入 C 和 C++头。 • 在初始化方法中,不要将变量初始化为“0”或“nil”,那是多余的。<br>• Objective-C 中,BOOL 被定义为 unsigned char,这意味着除了 YES (1) 和 NO (0)外它还可以是 其他值。禁止直接将 BOOL 和 YES/NO 比较,禁止将 int 直接转换(cast or convert)为 BOOL。<br>• Delegate Pattern(委托模式),delegate 对象使用 assign,禁止使用 retain。因为 retain 会导 致循环索引导致内存泄露 。<br>• Model/View/Controller(MVC模式),分离业务逻辑和展现逻辑。扩展模式 Model/Manger/View/Controller ,利于复用业务逻辑。<br>• 关于 pushViewController 的使用。 B – C<br>A – &lt;<br>B – D<br>当 B 模块是通用模块,例如 UIImagePickerController ,是以一个独立的功能组件存在时,如果 需要从 B 模块进入其他模块,正确的做法是:利用 delegate 机制,将数据从该通用模块回调出来 ,再 在调用者 Controller 中进行 pushViewController 操作。<br>如果从 A 模块到 B 模块再到其他模块 ,是一整个固定的流程 ,例如从注册页到初始化页再到主页 , 这是一个固定的业务流程,B 模块一般不会成为独立组件,则应该在 B 模块中直接进行 pushViewController 操作。<br>• 关于 viewDidLoad、viewDidUnload、dealloc、didReceiveMemoryWarning 的使用。 (待定)<br>• 关于函数分类整理。<br>不同分类的函数组之间用 #pragma mark - <em>**</em> 标注。 init、dealloc、viewDidLoad、viewDidUnload、didReceiveMemoryWarning 函数,应归类到一起。 viewWillAppear、viewDidAppear、viewWillDisappear、viewDidDisappear 函数,应归类到一起。 公共函数和私有函数应分别归类,公共函数应加上完整注释。<br>• 善用分类 (category)和扩展(Extension) 主类中提供对外接口(公共函数 ),对不同功能的函数多使用分类 QZURLCache.h<br>QZURLCache.m<br>QZURLCache+Private.h<br>QZURLCache+Private.m<br>QZURLCache+Helper.h<br>(category)使代码结构清晰。<br>QZURLCache+Helper.m QZURLCache+Delegate.h QZURLCache+Delegate.m QZURLCache+Reachability.h QZURLCache+Reachability.m<br>在头文件中提供对外接口(公共函数 ),在实现文件中使用扩展(Extension)声明私有函数,降低头文 件复杂度,增强可读性。</p>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/09/28/styleGuide/" data-id="cixpjr8yx0030d3imc87xm05n" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Style-Guide/">Style Guide</a></div><div class="post-nav"><a href="/2016/10/12/InternetReview/" class="pre">TCP/IP学习笔记（一）</a><a href="/2016/09/22/BugFix/" class="next">Undefined symbols for architecture x86_64等的完整解决方案</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/09/28/styleGuide/';
 var disqus_title = 'Objective-C Style Guide';

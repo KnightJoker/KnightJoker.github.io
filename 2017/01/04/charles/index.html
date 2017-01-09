@@ -30,9 +30,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">链接: https://pan.baidu.com/s/1pKGcQoz </span><br><span class="line">密码: 6c37</span><br></pre></td></tr></table></figure>
 <h3 id="使用-Charles"><a href="#使用-Charles" class="headerlink" title="使用 Charles"></a>使用 Charles</h3><p>之前提到，Charles 是通过将自己设置成代理服务器来完成封包截取的，所以使用 Charles 的第一步是将其设置成系统的代理服务器。</p>
 <p>不过在你第一次启动应用的时候，他会询问你是否将它设置系统代理权限，你只需要点击是就好了。不过如果没有点击的话，你也可以直接这么设置就好了：</p>
-<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E4%BB%A3%E7%90%86.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E4%BB%A3%E7%90%86.png?raw=true" alt=""></p>
 <p>然后接下来就是具体使用 Charles</p>
-<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E4%B8%BB%E8%A6%81%E7%95%8C%E9%9D%A2.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E4%B8%BB%E8%A6%81%E7%95%8C%E9%9D%A2.png?raw=true" alt=""></p>
 <p>Charles 主要提供两种查看封包的视图，分别名为 <code>Structure</code> 和 <code>Sequence</code>。</p>
 <ul>
 <li>Structure 视图将网络请求按访问的域名分类。</li>
@@ -41,16 +41,16 @@
 <p>大家可以根据具体的需要在这两种视图之前来回切换。请求多了有些时候会看不过来，Charles 提供了一个简单的 Filter 功能，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求。</p>
 <p>对于某一个具体的网络请求，你可以查看其详细的请求内容和响应内容。如果请求内容是 POST 的表单，Charles 会自动帮你将表单进行分项显示。如果响应内容是 JSON 格式的，那么 Charles 可以自动帮你将 JSON 内容格式化，方便你查看。如果响应内容是图片，那么 Charles 可以显示出图片的预览。</p>
 <p>看见请求之后右键就可以对该请求作出各种各样的操作了，这里就不具体介绍了：</p>
-<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E6%93%8D%E4%BD%9C.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E6%93%8D%E4%BD%9C.png?raw=true" alt=""></p>
 <p><strong>截取 Https 通讯信息</strong></p>
 <p>在 iOS 9 以后苹果引入了新特性 App Transport Security (ATS)。(ATS)新特性要求App内访问的网络必须使用HTTPS协议。</p>
 <p>这就很蛋疼了，因为 charles 默认是不截取 https 信息的。</p>
 <p>1、 安装证书</p>
 <p>如果你需要截取分析 Https 协议相关的内容。那么需要安装 Charles 的 CA 证书。具体步骤如下。</p>
 <p>首先我们需要在 Mac 电脑上安装证书。点击 Charles 的顶部菜单，选择 “Help” -&gt; “SSL Proxying” -&gt; “Install Charles Root Certificate”，然后输入系统的帐号密码，即可在 KeyChain 看到添加好的证书。如下图所示：</p>
-<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E8%AF%81%E4%B9%A6.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E8%AF%81%E4%B9%A6.png?raw=true" alt=""></p>
 <p>需要注意的是，即使是安装完证书之后，Charles 默认也并不截取 Https 网络通讯的信息，如果你想对截取某个网站上的所有 Https 网络请求，可以在该请求上右击，选择 SSL proxy，如下图所示：</p>
-<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E8%AF%81%E4%B9%A6%E4%BB%A3%E7%90%86.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/master/Img/charles%E8%AF%81%E4%B9%A6%E4%BB%A3%E7%90%86.png?raw=true" alt=""></p>
 <p>这样我们就可以开心的截取https协议啦~</p>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2017/01/04/charles/" data-id="cixpjr8yo002td3im24fxf3y0" class="article-share-link">分享到</a><div class="tags"><a href="/tags/charles/">charles</a></div><div class="post-nav"><a href="/2017/01/05/react-native/" class="pre">React - Native 学习(一)</a><a href="/2016/10/13/InternetReview1/" class="next">TCP/IP学习笔记（二）</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2017/01/04/charles/';
