@@ -24,7 +24,7 @@
 <p>指针变量在编译阶段只能调用其编译类型所具有的方法，但运行时则执行它所运行类型所具有的方法，指针变量只能调用声明该变量时所用类中包含的方法。</p>
 <p>比如在这里如果有<code>ploymophicB.test2();</code>这行代码会在编译时引发错误。虽然ploymophicBc变量实际指向的对象却是包含test2（）方法，但是因为它的编译类型为KJBase，因此编译时候无法调用test2()方法。</p>
 <p>如果这里需要让这个指针变量调用它运行时类型的方法，则必须强制类型转换成运行时类型，强制类型转换需要借助<strong>类型转换运算符</strong>，其用法为：（type *）variable，这里便将variable变量转换成一个type类型的变量。（为了保证代码的鲁棒性，在进行强制类转换之前，首先判断前一个对象是否是该类的实例，是否可以成功地转换，从而保证代码更加健壮。）</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/05/11/Inherrtance and polymorphism/" data-id="cizznzv41000qiusbd94px7nm" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/05/17/Delegate and Protocol/" class="pre">协议与委托</a><a href="/2016/05/10/KVC and KVO/" class="next">KVC与KVO</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/05/11/Inherrtance and polymorphism/" data-id="cj00yx2i8000rytsblyokys2x" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/05/17/Delegate and Protocol/" class="pre">协议与委托</a><a href="/2016/05/10/KVC and KVO/" class="next">KVC与KVO</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/05/11/Inherrtance and polymorphism/';
 var disqus_title = '继承和多态';
 var disqus_url = 'http://dbcxl.com/2016/05/11/Inherrtance and polymorphism/';
