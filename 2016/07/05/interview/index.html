@@ -26,7 +26,26 @@
 <li><p>什么是属性？如何创建一个属性？使用属性的优点</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@property = ivar(实例变量) + getter + setter;</span><br><span class="line"></span><br><span class="line">而在实际开发中，我们则会使用很多的关键词对 property 进行修饰</span><br><span class="line">这里也可以分为三个大类：</span><br><span class="line">    + 存取：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@property = ivar(实例变量) + getter + setter;</span><br><span class="line"></span><br><span class="line">而在实际开发中，我们则会使用很多的关键词对 property 进行修饰</span><br><span class="line">这里也可以分为三个大类：</span><br><span class="line">    1. 存取：readonly、readwrite</span><br><span class="line">    2. 内存操作：</span><br><span class="line">         - strong（强引用，对象的引用计数+1，一个对象只有当有强指针指向它，才会被保留在内存中，否则就会被销毁）</span><br><span class="line">         - weak （弱引用，不改变对象的引用计数，对象被释放的时候，指针为 nil）</span><br><span class="line">         - assign (用于基础数据类型，值复制，不改变对象的引用计数)</span><br><span class="line">         - copy (地址复制，不改变原对象的引用计数)</span><br><span class="line">    3. 原子性：</span><br><span class="line">         - atomic (默认，原子操作，线程同步，保证线程安全，但影响性能)</span><br><span class="line">         - nonatomic (非原子操作，不保证线程安全，效率较快，开发中比较常用)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何检查一个对象中的 @optional 协议方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(self.delegate &amp;&amp; [self.delegate respondsToSelector:@selector(closed)])&#123;</span><br><span class="line">    [self.delegate closed];</span><br><span class="line">&#125;</span><br><span class="line">// 注意这里的respondsToSelector，在protocol中需要继承NSObject</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>什么是category？extension 和 category 的区别? <a href="http://tech.meituan.com/DiveIntoCategory.html" target="_blank" rel="external">详情</a></p>
+</li>
+<li><p>正式协议与非正式协议 <a href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Protocol.html" target="_blank" rel="external">具体</a></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正式协议： 客户端实现预期类的方法列表</span><br><span class="line">非正式协议：NSObject 的类别</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何声明受保护的方法（仅适用于某些专用类）？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用category 分割头文件，并且包含在其他类中</span><br></pre></td></tr></table></figure>
+<ul>
+<li>什么是指定初始化(designated initializer)?为什么经常 if (self = [super …])</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init &#123;</span><br><span class="line">         if (self = [super init]) &#123;</span><br><span class="line">                // Custom initialization</span><br><span class="line">        &#125;</span><br><span class="line">         return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 我们知道对象继承的概念，一个子类从父类继承，那么也要实现父类的所有功能，这就是is-a的关系。所以在子类的初始化方法中，必须首先调用父类的初始化方法，以实现父类相关资源的初始化。</span><br></pre></td></tr></table></figure>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/07/05/interview/" data-id="cj1f4m31x002t21sbi6wt8l3p" class="article-share-link">分享到</a><div class="tags"><a href="/tags/interview/">interview</a></div><div class="post-nav"><a href="/2016/07/09/Saving_and_Loading/" class="pre">保存、读取数据</a><a href="/2016/07/03/NSNotificationCenter/" class="next">NSNotificationCenter (通知中心)</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/07/05/interview/';
 var disqus_title = 'Some iOS/ObjC Questions';
