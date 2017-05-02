@@ -50,6 +50,40 @@
 <li>对象之间的相互通信</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">delegate(这里需要知道delegate通常使用weak修饰，而不用assign，两者都是防止循环引用而导致内存泄漏，而weak为nil的时候，直接释放掉对象，assign为nil则会导致野指针。经常看见代码下ARC会用weak修饰，而MRC则只能使用assign)</span><br><span class="line"></span><br><span class="line">block(带有自动变量的匿名函数，而每一个函数的调用都是在栈区，因此他的消亡不需要我们去控制，但如果我们使用block作为一个对象的话，我们会使用copy进行修饰，这样就可以把block的实现拷贝一份到堆区，这样便拥有该block的所有权，而新建一个指针(__weak typeof(Target) weakTarget = Target )指向Block代码块里的对象，然后用weakTarget进行操作。就可以解决循环引用问题。)</span><br><span class="line"></span><br><span class="line">notification</span><br><span class="line"></span><br><span class="line">target-action</span><br></pre></td></tr></table></figure>
+<ul>
+<li>什么是@selector?怎么创建一个selector</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类似于C语言中的函数指针，而 Objective - C 中的类不能直接应用函数指针，这样只能做一个@selector语法来取，</span><br><span class="line">它的结果是一个SEL类型。这个类型本质是类方法的编号(函数地址)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ObjC 中方括号和点语法的区别</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">历史发展原因参考 C++ ，而在ObjC 中，方括号代表消息传递，而点语法表示属性访问。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>KVO</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">其实就是ObjC 中对观察者设计模式的一种实现。</span><br><span class="line">当你观察一个对象时，会动态的创建该对象类的子类，这个子类重写了被观察属性 keyPath 的 setter 方法，同时将该对象的 isa 指针指向了新创建的子类。在 Objective-C 中对象是通过 isa 指针来查找对应类中的方法列表的，所以这里可以把该对象看为新子类的实例对象。重写的 setter 方法会在调用原 setter 方法之后，通知观察者对象属性值的更改。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>KVC</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">它是一种可以通过字符串的名字（key）来访问类属性的机制。而不是通过调用Setter、Getter方法访问。关键方法定义在 NSKeyValueCodingProtocol、KVC支持类对象和内建基本数据类型。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>什么是快速枚举？<a href="http://blog.leichunfeng.com/blog/2016/06/20/objective-c-fast-enumeration-implementation-principle/" target="_blank" rel="external">详情</a></p>
+</li>
+<li><p>判断类的所属</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isKindOfClass           :实例方法判断</span><br><span class="line">isMemberOfClass         :类方法</span><br><span class="line">isSubclassOfClass       :类型完全匹配的时候才会返回YES</span><br></pre></td></tr></table></figure>
+<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><ul>
+<li>串行、并行、同步和异步</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">串行并行针对的是队列，同步异步针对的是任务</span><br></pre></td></tr></table></figure>
+<ul>
+<li>什么是死锁？怎样发生的？</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单来说就是A线程等待B线程结束后执行，B线程等待A线程结束后执行，固发生死锁。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如何保证线程安全(线程同步和超时)？ <a href="http://www.jianshu.com/p/938d68ed832c" target="_blank" rel="external">详细</a></li>
+</ul>
 </div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://dbcxl.com/2016/07/05/interview/" data-id="cj1f4m31x002t21sbi6wt8l3p" class="article-share-link">分享到</a><div class="tags"><a href="/tags/interview/">interview</a></div><div class="post-nav"><a href="/2016/07/09/Saving_and_Loading/" class="pre">保存、读取数据</a><a href="/2016/07/03/NSNotificationCenter/" class="next">NSNotificationCenter (通知中心)</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
 var disqus_identifier = '2016/07/05/interview/';
 var disqus_title = 'Some iOS/ObjC Questions';
