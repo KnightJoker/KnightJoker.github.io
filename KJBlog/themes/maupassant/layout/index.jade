@@ -9,6 +9,7 @@ block title
 block content
 
   for post in page.posts.toArray()
+   unless post.isHidden
     .post
       h2.post-title
         include _partial/helpers

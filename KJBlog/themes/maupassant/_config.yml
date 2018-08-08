@@ -18,6 +18,9 @@ menu:
   - page: 博客
     directory: archives/
     icon: fa-archive
+  # - page: 日记
+  #   directory: diary/
+  #   icon: fa-book
   - page: 关于
     directory: about/
     icon: fa-user
@@ -35,11 +38,11 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - recent_comments
   - links
 
-links:
-  - title: llissery的博客
-    url: http://llissery.net/
-  - title: hyuni的博客
-    url: http://hyuni.cn/
+# links:
+#   - title: llissery的博客
+#     url: http://llissery.net/
+#   - title: hyuni的博客
+#     url: http://hyuni.cn/
 
 timeline:
   - num: 1

@@ -70,6 +70,8 @@ theme: maupassant
 deploy:
   type: git
   repo: git@github.com:KnightJoker/KnightJoker.github.io.git
+  name: KnightJoker
+  email: cbearxl@gmail.com
   branch: master
   message: updated notes
 
