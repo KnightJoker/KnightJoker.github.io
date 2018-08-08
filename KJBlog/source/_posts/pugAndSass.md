@@ -1,5 +1,6 @@
 title: pug和sass的使用教程
 description: 自己写了一个坑爹的pug和sass入门教程吧，网上查了半天，各种不靠谱，坑死了T T，自己动手丰衣足食！这里主要使用这两个工具来简化我们前端代码书写的工作量。
+date: 2017/06/15 08:46:25
 categories: 
 - 前端
 tags:

@@ -1,5 +1,6 @@
 title: 核心动画(Core Animation)
 description: Core Animation is a graphics rendering and animation infrastructure available on both iOS and OS X that you use to animate the views and other visual elements of your app
+date: 2017/04/18 08:46:25
 categories:
 - iOS
 tags:

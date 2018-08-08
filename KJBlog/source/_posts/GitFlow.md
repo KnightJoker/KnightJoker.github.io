@@ -1,6 +1,7 @@
 
 title: 基于git的源代码管理模型
 description: Git Flow是构建在Git之上的一个组织软件开发活动的模型，是在Git之上构建的一项软件开发最佳实践。Git Flow是一套使用Git进行源代码管理时的一套行为规范和简化部分Git操作的工具。
+date: 2017/04/07 08:46:25
 categories:
 - 计算机基础
 tags:

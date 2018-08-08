@@ -2,6 +2,7 @@
 
 title: 属性(Properties)
 description: 声明属性，它可以使我们快速方便 的为实例变量创建存取器，并允许我们通过点语法去使用存取器。
+date: 2016/08/02 08:46:25
 categories: 
 - iOS
 tags:

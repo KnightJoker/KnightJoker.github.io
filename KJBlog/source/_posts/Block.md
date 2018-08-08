@@ -1,5 +1,6 @@
 title: Block 
 description: What the fucking block?
+date: 2017/02/21 08:46:25
 categories:
 - iOS
 tags:
@@ -55,7 +56,16 @@ TypeName blockName = ^returnType(parameters){...};
 ### 这里做一个简单的Block回调代码：
 
 ```
-int main(int argc, const char * argv[]) {      @autoreleasepool {          int wheetalk = 13;          void(^ HolaweenBlock)() = ^(){              printf("%d\n", wheetalk);          };          wheetalk = 27;          HolaweenBlock();      }return 0; 
+int main(int argc, const char * argv[]) {
+      @autoreleasepool {
+          int wheetalk = 13;
+          void(^ HolaweenBlock)() = ^(){
+              printf("%d\n", wheetalk);
+          };
+          wheetalk = 27;
+          HolaweenBlock();
+      }
+return 0; 
 }
 ```
 现在遇见的问题就是在Block 的使用中，尽量不需要使用到_ 和 self 的全局变量，比较容易引起循环引用，程序容易崩溃。

@@ -1,5 +1,6 @@
 title: 函数的使用
 description: Object-C的函数定义和调用都比较怪异，为了让对象执行某个操作，需要向对象发送消息，因此，函数的调用被称作Object Messageing。其消息的定义是[Receiver Message]，前者是接收消息的对象，后者是消息的本身。
+date: 2017/01/16 08:46:25
 categories:
 - iOS
 tags:

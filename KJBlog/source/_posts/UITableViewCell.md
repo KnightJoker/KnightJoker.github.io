@@ -1,5 +1,6 @@
 title: UITableViewCell 介绍
 description: UITableView 所显示的每一行都是一个独立的视图，这些视图是UITableViewCell 对象。这里我就学习了一下创建UITableViewCell 对象并且使用其来填充UITableView。
+date: 2016/10/16 08:46:25
 categories:
 - iOS
 tags:

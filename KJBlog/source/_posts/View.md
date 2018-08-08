@@ -1,5 +1,6 @@
 title: 视图与其层次结构
 description: 但凡你在iOS 系统中能看见的，触摸的，使用的都是UIView 对象，可以说是iOS 开发中最重要的一个类。
+date: 2016/07/16 08:46:25
 categories:
 - iOS
 tags:

@@ -1,5 +1,6 @@
 title: Translate some nice article
 description: In the world of mobile app development, we’re always looking for shorter development cycles, quicker time to deployment, and better app performance.
+date: 2017/04/16 08:46:25
 categories:
 - 前端
 tags:

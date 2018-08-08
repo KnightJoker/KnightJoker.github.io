@@ -1,5 +1,6 @@
 title: Undefined symbols for architecture x86_64等的完整解决方案
 description: linker command failed with exit code 1 (use -v to see invocation) 问题的修复。
+date: 2017/04/22 08:46:25
 categories: 
 - iOS
 tags:

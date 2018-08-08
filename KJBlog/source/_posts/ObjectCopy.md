@@ -1,5 +1,6 @@
 title: 对象复制
 description: copy方法用于复制对象的副本。通常来说，copy方法总是返回对象的不可修改的副本，即使该对象本身是可修改的。mutableCopy 方法用于复制对象的可变副本。mutableCopy 方法总是返回该对象的可修改的副本，即使被复制的对象本身是不可以修改的，调用mutableCopy方法复制出来的副本也是可修改的。
+date: 2016/09/11 08:46:25
 categories:
 - iOS
 tags:

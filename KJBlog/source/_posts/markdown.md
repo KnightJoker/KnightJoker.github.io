@@ -1,6 +1,7 @@
 
 title: markdown语法
 description: 1.纯文本，所以兼容性极强，可以用所有文本编辑器打开。2.让你专注于文字而不是排版。3.格式转换方便，Markdown 的文本你可以轻松转换为 html、电子书等。4.Markdown 的标记语法有极好的可读性。
+date: 2016/11/25 08:46:25
 categories:
 - 前端
 tags:

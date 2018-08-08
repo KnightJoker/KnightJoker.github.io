@@ -1,5 +1,6 @@
 title: TCP/IP学习笔记（二）
 description: Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/因特网互联协议，又名网络通讯协议，是Internet最基本的协议、Internet国际互联网络的基础，由网络层的IP协议和传输层的TCP协议组成。
+date: 2016/02/02 08:46:25
 categories: 
 - 计算机基础
 tags:

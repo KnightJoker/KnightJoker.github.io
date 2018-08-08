@@ -1,5 +1,6 @@
 title: 文本输入 (UITextField)
 description: UITextField 是常用的文本输入控件。
+date: 2016/09/16 08:46:25
 categories:
 - iOS
 tags:
