@@ -1,5 +1,5 @@
 title: Swift 笔记
-description: 记录一些swift学习过程中遇见的一些问题，记录过程可能比较乱
+description: 记录一些swift学习过程中遇见的一些问题，过程顺序可能比较乱
 categories:
 - iOS
 tags:

@@ -4,7 +4,7 @@ comments: false
 
 ---
 
-<i class="fa fa-heart" aria-hidden="true"> Nickname: [KnightJoker](http://dbcxl.com/)</i>
+<i class="fa fa-heart" aria-hidden="true"> Nickname: [Huni](http://huni.me/)</i>
 
 <i class="fa fa-envelope" aria-hidden="true"> E-mail: [cbearxl@gmail.com](cbearxl@gmail.com)</i>
 
