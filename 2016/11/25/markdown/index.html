@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>markdown语法 | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">markdown语法</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">markdown语法</h1><div class="post-meta">Nov 25, 2016<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/11/25/markdown/" href="/2016/11/25/markdown/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>个人总结 Markdown 的优点如下：</p>
+<ul>
+<li>纯文本，所以兼容性极强，可以用所有文本编辑器打开。</li>
+<li>让你专注于文字而不是排版。</li>
+<li>格式转换方便，Markdown 的文本你可以轻松转换为 html、电子书等。</li>
+<li>Markdown 的标记语法有极好的可读性。</li>
+</ul>
+<p>以下便为大家带来一些Markdown语法说明：</p>
+<hr>
+<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>在Markdown中，你只需要在你只需要在文本前面加上 # 即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加  # 即可，标题字号相应降低。例如：</p>
+<p># 一级标题</p>
+<p>## 二级标题</p>
+<p>### 三级标题</p>
+<p>#### 四级标题</p>
+<p>##### 五级标题</p>
+<p>###### 六级标题</p>
+<hr>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p><strong>无序列表</strong>使用 ‘*’ 、‘+’ 、‘-’  加号或是减号作为列表标记：</p>
+<p>* 文本1</p>
+<p>* 文本2</p>
+<p>* 文本3 </p>
+<p><strong>有序列表</strong>使用则使用数字接着一个英文句点：</p>
+<p>1.文本1</p>
+<p>2.文本2</p>
+<p>3.文本3</p>
+<hr>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线:</p>
+<p>* * *</p>
+<p>***</p>
+<p>*****</p>
+<p>- - -</p>
+<p>------------------------</p>
+<hr>
+<h1 id="链接与图片"><a href="#链接与图片" class="headerlink" title="链接与图片"></a>链接与图片</h1><p>Markdown 支持两种形式的链接语法： <strong>行内式</strong>和<strong>参考式</strong>两种形式。</p>
+<p><strong>行内式：</strong></p>
+<p>[链接名称]（网址，“标题”）</p>
+<p><strong>参考式：</strong></p>
+<p>[链接名称][链接代号]</p>
+<p>[连接代号] : 网址 “标题”</p>
+<hr>
+<h1 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h1><p>Markdown 使用星号（*）和底线（_）作为标记强调字词的符号。</p>
+<p>*斜体强调*</p>
+<p>**粗体强调**</p>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>如果要标记一小段行内代码，你可以用反引号把它包起来（`），例如：</p>
+<p>`printf(“hello,world!”)`</p>
+<hr>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computer</td>
+<td>$1600</td>
+</tr>
+<tr>
+<td>Phone</td>
+<td>$12</td>
+</tr>
+<tr>
+<td>Pipe</td>
+<td>$1</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>Markdown 标记区块引用是使用类似 email 中用 &gt; 的引用方式。</p>
+<p>块引用</p>
+<blockquote>
+<p>给引用的文本开始位置都加一个 ‘&gt;’，便可组成一个块引用。</p>
+</blockquote>
+<blockquote>
+<p>在块引用中，可以结合其他markdown元素一块使用，比如列表。</p>
+</blockquote>
+<blockquote>
+<p>也可以只在第一行加大于号，其他位置不加。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>块引用里使用列表，需要和上面的内容隔开一个空行</li>
+<li>记得加空格哦。</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="反斜杠"><a href="#反斜杠" class="headerlink" title="反斜杠"></a>反斜杠</h1><p>Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号。</p>
+<p>如：</p>
+<p>\   反斜线</p>
+<p>`   反引号</p>
+<p>*   星号</p>
+<p>_   底线</p>
+<p>{}  花括号</p>
+<p>[]  方括号</p>
+<p>()  括弧</p>
+<p>#   井字号</p>
+<p>+   加号</p>
+<p>-   减号</p>
+<p>.   英文句点</p>
+<p>!   惊叹号</p>
+<hr>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://huni.me/2016/11/25/markdown/" data-id="cjkjixxte002xyj33099g7172" class="article-share-link">分享到</a><div class="tags"><a href="/tags/markdown/">markdown</a></div><div class="post-nav"><a href="/2016/12/07/DelegateAndProtocol/" class="pre">协议与委托</a><a href="/2016/10/16/UITableViewCell/" class="next">UITableViewCell 介绍</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+var disqus_identifier = '2016/11/25/markdown/';
+var disqus_title = 'markdown语法';
+var disqus_url = 'http://huni.me/2016/11/25/markdown/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//dbcxl.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://huni.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/AFNetworking/" style="font-size: 15px;">AFNetworking</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/BugFix/" style="font-size: 15px;">BugFix</a> <a href="/tags/Foundation框架/" style="font-size: 15px;">Foundation框架</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/TCP-IP/" style="font-size: 15px;">TCP/IP</a> <a href="/tags/消息传递/" style="font-size: 15px;">消息传递</a> <a href="/tags/文件I-O/" style="font-size: 15px;">文件I/O</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/LAMP/" style="font-size: 15px;">LAMP</a> <a href="/tags/react-native/" style="font-size: 15px;">react-native</a> <a href="/tags/Distribution/" style="font-size: 15px;">Distribution</a> <a href="/tags/charles/" style="font-size: 15px;">charles</a> <a href="/tags/interview/" style="font-size: 15px;">interview</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/swift/" style="font-size: 15px;">swift</a> <a href="/tags/pug/" style="font-size: 15px;">pug</a> <a href="/tags/Style-Guide/" style="font-size: 15px;">Style Guide</a> <a href="/tags/计算机网络/" style="font-size: 15px;">计算机网络</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/ManagingMemory/">内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/05/react_native1/">React - Native 学习(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/02/KVC_KVO/">KVC与KVO</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/17/notes_swift/">Swift 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/pugAndSass/">pug和sass的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/AFNetworking/">浅析AFNetworking（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/drawRect/">在视图上面自定义绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/charles/">Charles 入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/NSNotificationCenter/">NSNotificationCenter (通知中心)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/BugFix/">Undefined symbols for architecture x86_64等的完整解决方案</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//dbcxl.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://llissery.net/" title="llissery的博客" target="_blank">llissery的博客</a><ul></ul><a href="http://hyuni.cn/" title="hyuni的博客" target="_blank">hyuni的博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a rel="nofollow" target="_blank" href="https://github.com/KnightJoker">KnightJoker.</a>Touching my heart.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

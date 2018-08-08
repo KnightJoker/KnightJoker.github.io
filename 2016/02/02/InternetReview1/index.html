@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>TCP/IP学习笔记（二） | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">TCP/IP学习笔记（二）</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">TCP/IP学习笔记（二）</h1><div class="post-meta">Feb 2, 2016<span> | </span><span class="category"><a href="/categories/计算机基础/">计算机基础</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/02/02/InternetReview1/" href="/2016/02/02/InternetReview1/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><h1 id="UDP协议"><a href="#UDP协议" class="headerlink" title="UDP协议"></a>UDP协议</h1><p>UDP是传输层协议，和TCP协议处于一个分层中，但是与TCP协议不同，UDP协议并不提供超时重传，出错重传等功能，也就是说其是不可靠的协议。</p>
+<h1 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h1><p>TCP和UDP处在同一层—运输层，但是TCP和UDP最不同的地方是，TCP提供了一种可靠的数据传输服务，TCP是面向连接的，也就是说，利用TCP通信的两台主机首先要经历一个“拨打电话”的过程，等到通信准备结束才开始传输数据，最后结束通话。所以TCP要比UDP可靠的多，UDP是把数据直接发出去，而不管对方是不是在收信，就算是UDP无法送达，也不会产生ICMP差错报文。</p>
+<p>这里也就简述一下TCP保证可靠性工作的原理：</p>
+<ol>
+<li><p>应用数据被分割成TCP认为最适合发送的数据块。这和UDP完全不同，应用程序产生的数据报长度将保持不变。</p>
+</li>
+<li><p>当TCP发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。</p>
+</li>
+<li><p>当TCP收到发自TCP连接另一端的数据，它将发送一个确认。</p>
+</li>
+<li><p>TCP将保持它首部和数据的检验和。这是一个端到端的检验和，目的是检测数据在传输过程中的任何变化。如果收到段的检验和有差错， TCP将丢弃这个报文段和不确认收到此报文段（希望发端超时并重发）。</p>
+</li>
+<li><p>TCP报文段作为IP数据报来传输。IP数据报失序后，也会导致TCP报文段失序。</p>
+</li>
+<li><p>TCP还能提供流量控制。TCP连接的每一方都有固定大小的缓冲空间。TCP的接收端只允许另一端发送接收端缓冲区所能接纳的数据。这将防止较快主机致使较慢主机的缓冲区溢出。</p>
+</li>
+</ol>
+<p>有以上便可以得出TCP保持可靠性的方式就是<strong>超时重发</strong></p>
+<p>可以想象一个TCP数据的发送应该是如下的一个过程：</p>
+<ul>
+<li><p>双方建立连接</p>
+</li>
+<li><p>发送方给接受方TCP数据报，然后等待对方确认TCP数据报，如果没有，就重新发，如果有，就发送下一个数据报。</p>
+</li>
+<li><p>接受方等待发送方的数据报，如果得到数据报并检验无误，就发送ACK（确认）数据报，并等待下一个TCP数据报的到来。直到收到FIN（发送完成数据报）</p>
+</li>
+<li><p>终止连接</p>
+</li>
+</ul>
+<h3 id="TCP连接的建立与中止"><a href="#TCP连接的建立与中止" class="headerlink" title="TCP连接的建立与中止"></a>TCP连接的建立与中止</h3><p>TCP连接的建立可以简单的称为三次握手，而连接的中止则可以叫做四次握手。</p>
+<h6 id="三次握手（连接的建立）"><a href="#三次握手（连接的建立）" class="headerlink" title="三次握手（连接的建立）"></a>三次握手（连接的建立）</h6><ol>
+<li>第一次<ul>
+<li>建立连接时，客户端向服务器发送SYN包，等待服务器确认。</li>
+</ul>
+</li>
+<li>第二次<ul>
+<li>服务器收到SYN包，确认客户的SYN后，自己在发送一个SYN+ACK的包</li>
+</ul>
+</li>
+<li>第三次<ul>
+<li>客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK，此包发送完毕后，客户端和服务器便进入TCP连接成功状态，完成三次握手。</li>
+</ul>
+</li>
+</ol>
+<h6 id="四次握手（中止连接）"><a href="#四次握手（中止连接）" class="headerlink" title="四次握手（中止连接）"></a>四次握手（中止连接）</h6><ol>
+<li><p>TCP客户端发送一个FIN，用来关闭客户到服务器的数据传输。</p>
+</li>
+<li><p>服务器收到这个FIN，它发回一个ACK，确认序号为收到序号加1。和SYN一样，一个FIN将占用一个序号。</p>
+</li>
+<li><p>服务器关闭客户端的连接，发送一个FIN给客户端。</p>
+</li>
+<li><p>客户端发回ACK报文确认，并将确认序号设置为收到序号加1.</p>
+</li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://huni.me/2016/02/02/InternetReview1/" data-id="cjkjixxsn000yyj33obqkysru" class="article-share-link">分享到</a><div class="tags"><a href="/tags/TCP-IP/">TCP/IP</a></div><div class="post-nav"><a href="/2016/03/12/InstallationAnd ConfigurationOfNginx/" class="pre">Linux下Nginx服务器的安装和配置</a><a href="/2016/01/26/InternetReview/" class="next">TCP/IP学习笔记（一）</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+var disqus_identifier = '2016/02/02/InternetReview1/';
+var disqus_title = 'TCP/IP学习笔记（二）';
+var disqus_url = 'http://huni.me/2016/02/02/InternetReview1/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//dbcxl.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://huni.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/AFNetworking/" style="font-size: 15px;">AFNetworking</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/BugFix/" style="font-size: 15px;">BugFix</a> <a href="/tags/Foundation框架/" style="font-size: 15px;">Foundation框架</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/TCP-IP/" style="font-size: 15px;">TCP/IP</a> <a href="/tags/消息传递/" style="font-size: 15px;">消息传递</a> <a href="/tags/文件I-O/" style="font-size: 15px;">文件I/O</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/LAMP/" style="font-size: 15px;">LAMP</a> <a href="/tags/react-native/" style="font-size: 15px;">react-native</a> <a href="/tags/Distribution/" style="font-size: 15px;">Distribution</a> <a href="/tags/charles/" style="font-size: 15px;">charles</a> <a href="/tags/interview/" style="font-size: 15px;">interview</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/swift/" style="font-size: 15px;">swift</a> <a href="/tags/pug/" style="font-size: 15px;">pug</a> <a href="/tags/Style-Guide/" style="font-size: 15px;">Style Guide</a> <a href="/tags/计算机网络/" style="font-size: 15px;">计算机网络</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/ManagingMemory/">内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/05/react_native1/">React - Native 学习(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/02/KVC_KVO/">KVC与KVO</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/17/notes_swift/">Swift 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/pugAndSass/">pug和sass的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/AFNetworking/">浅析AFNetworking（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/drawRect/">在视图上面自定义绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/charles/">Charles 入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/NSNotificationCenter/">NSNotificationCenter (通知中心)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/BugFix/">Undefined symbols for architecture x86_64等的完整解决方案</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//dbcxl.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://llissery.net/" title="llissery的博客" target="_blank">llissery的博客</a><ul></ul><a href="http://hyuni.cn/" title="hyuni的博客" target="_blank">hyuni的博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a rel="nofollow" target="_blank" href="https://github.com/KnightJoker">KnightJoker.</a>Touching my heart.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

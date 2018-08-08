@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>协议与委托 | 来自遥远星系的技术空间站</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.1.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">协议与委托</h1><a id="logo" href="/.">来自遥远星系的技术空间站</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 博客</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/comment/"><i class="fa fa-comments"> 留言</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">协议与委托</h1><div class="post-meta">Dec 7, 2016<span> | </span><span class="category"><a href="/categories/iOS/">iOS</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="2016/12/07/DelegateAndProtocol/" href="/2016/12/07/DelegateAndProtocol/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><h3 id="协议（protocol）"><a href="#协议（protocol）" class="headerlink" title="协议（protocol）"></a>协议（protocol）</h3><p><br></p>
+<p>协议是Objective - C的一个重要的知识点，其作用类似于接口，用于多个类应该遵守的规范。</p>
+<p><strong>规范、协议与接口</strong></p>
+<p><code>规范 → 类 → 对象</code></p>
+<p>由以上可以看出，同一个类的内部状态数据、各种方法的实现细节完全相同，类是一种具体实现体。而协议则定义了一种规范，协议定义某一批类所需要遵循的规范，它不关心这些类的内部状态数据，也不关心这些类里方法的实现细节，它只规定这批类中必须提供某些方法，提供这些方法的类就可以满足实际需要。</p>
+<p>协议不提供任何实现。（协议定义的是多个类共同的公共行为规范，这就意味着协议里通常定义是一组公用的方法，方法的实现则交给类去完成）</p>
+<h4 id="使用类别实现非正式协议"><a href="#使用类别实现非正式协议" class="headerlink" title="使用类别实现非正式协议"></a>使用类别实现非正式协议</h4><p><strong>类别（category）：</strong> Objective - C的动态特征允许使用类别为现有的类添加新方法，并且不需要创建子类，不需要访问原有类的源代码。通过使用类别即可动态地为现有的类添加新方法，而且可以将类定义模块化分布到多个相关文件中。</p>
+<p>其同样由接口和实现部分组成，<strong>接口部分</strong>语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface 已有类 （类别名）</span><br><span class="line">//方法定义</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>类别实现部分的语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@implmentation 已有类 （类别名）</span><br><span class="line">//方法实现</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>注意上面的语法格式，虽然这个语法格式看上去很像在定义类，但在类名后面有一个圆括号，而且圆括号中带一个类别名，并且存在以下差异：</p>
+<ul>
+<li><p>定义类时使用的类名必须是该项目中没有的类，而且定义类别时使用的类名必须是已有的类。</p>
+</li>
+<li><p>定义类别时必须使用圆括号来包含类别名。</p>
+</li>
+<li><p>类别中通常只定义方法。</p>
+</li>
+</ul>
+<p>这里注意Xcode并不强制遵守非正式的类必须实现该协议中所有的方法，但如果该类没有实现非正式协议中的某个方法，那么程序运行时如果调用该方法，就会引发<code>unrecognized selectoe</code>错误。</p>
+<h4 id="正式协议"><a href="#正式协议" class="headerlink" title="正式协议"></a>正式协议</h4><p><strong>正式协议的定义：</strong></p>
+<p>和定义类不同，正式协议不再使用@interface、@implementation 关键字，而是使用@protocol，其基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@protocol 协议名 &lt;父协议1，父协议2&gt;</span><br><span class="line">&#123;</span><br><span class="line">	//零到多个方法定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于以上语法，在我看来：</p>
+<ul>
+<li><p>协议名与类名采用相同的命名规则。</p>
+</li>
+<li><p>一个协议可以有多个直接父协议，但协议只能继承协议，不能继承类。</p>
+</li>
+<li><p>协议中定义的方法只有方法签名，没有方法实现；协议中的方法可以是类方法，也可以是实例方法。</p>
+</li>
+<li><p>协议中所有的方法都是公开的访问权限。</p>
+</li>
+</ul>
+<p><strong>遵守（实现协议）：</strong></p>
+<p>在类定义的接口部分可指定该类继承的父类，以及遵守的协议，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@interface 类名 ： 父类 &lt;协议1，协议2&gt;</span><br></pre></td></tr></table></figure>
+<p>如果在程序中需要使用协议来定义变量，有如下两种语法：</p>
+<ul>
+<li><p>NSObject &lt;协议1，协议2&gt;* 变量；</p>
+</li>
+<li><p>id&lt;协议1，协议2&gt; 变量;</p>
+</li>
+</ul>
+<p>通过上面的语法格式定义的变量，他们的编译类型仅仅只是所遵守的协议类型，因此只能调用该协议中的定义的方法。</p>
+<p>这里则要特别注意，实现正式协议则必须实现协议中定义的所有方法。然而为了弥补这点造成的灵活性不足，在OC 2.0新增了@optional、@required 两个关键字：</p>
+<ul>
+<li><p>@optional ：位于该关键字之后、@end之前声明的方法是可选的——实现类即可选择实现这些方法，也可不实现这些方法。</p>
+</li>
+<li><p>@required ：位于该关键字之后、@end之前声明的方法是必须的——实现类必须实现这些方法。如果没有实现这些方法，编译器就会提示警告。且@required 是默认行为。</p>
+</li>
+</ul>
+<p>在正式的协议中通过使用@optional、 @required 两个关键字，正式协议完全可以替代非正式协议的功能。</p>
+<p><br></p>
+<h3 id="委托（delegate）"><a href="#委托（delegate）" class="headerlink" title="委托（delegate）"></a>委托（delegate）</h3><p><br><br>协议体现的是一种规范，定义协议的类可以把协议定义的方法委托给实现协议的类，这样可以让类定义具有更好的通用性质，因为具体的动作交给协议的实现类去完成，在各种iOS应用开发中，需要大量的依赖委托这个概念。</p>
+<p>这里我们就需要举个栗子来说明一下这个delegate了：</p>
+<blockquote>
+<p>假设你的软件有一个表格(UITableView)界面，当你点击了表格中的某行(cell)，这个表格就说：“点我干嘛？我负责显示而已，其他事不关我的事。一边凉快去！”。不过，这个表格看到你猛搓屏幕、欲哭无泪的可怜样子，于是心软了，决定帮帮你。表格就拜托(委托)它的一个朋友帮忙，名字挺洋气的，叫“UITableViewController”(以下简称C)，C就很仗义地帮忙了，当你再点击的时候，C就利用tableView: didSelectRowAtIndexPath:方法，让你点击了表格后，有了相关的反馈(比如跳入下一页)。</p>
+</blockquote>
+<p>以上——“表格”委托“UITableViewController”处理点击事件。这就是“委托/ Delegation”，它就是一种思想，一种思路，一种“设计模式”。</p>
+<p>所以，“委托”的使用，只是为了降低程序的耦合性，提高代码重复利用的价值。</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://huni.me/2016/12/07/DelegateAndProtocol/" data-id="cjkkia74d00032c33f7fht6x5" class="article-share-link">分享到</a><div class="tags"><a href="/tags/面向对象/">面向对象</a></div><div class="post-nav"><a href="/2016/12/16/UITableView/" class="pre">UITableView 详细介绍</a><a href="/2016/11/25/markdown/" class="next">markdown语法</a></div><div id="disqus_thread"><script>var disqus_shortname = 'dbcxl';
+var disqus_identifier = '2016/12/07/DelegateAndProtocol/';
+var disqus_title = '协议与委托';
+var disqus_url = 'http://huni.me/2016/12/07/DelegateAndProtocol/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//dbcxl.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://huni.me"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/UI控件/" style="font-size: 15px;">UI控件</a> <a href="/tags/AFNetworking/" style="font-size: 15px;">AFNetworking</a> <a href="/tags/面向对象/" style="font-size: 15px;">面向对象</a> <a href="/tags/BugFix/" style="font-size: 15px;">BugFix</a> <a href="/tags/Foundation框架/" style="font-size: 15px;">Foundation框架</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/TCP-IP/" style="font-size: 15px;">TCP/IP</a> <a href="/tags/消息传递/" style="font-size: 15px;">消息传递</a> <a href="/tags/文件I-O/" style="font-size: 15px;">文件I/O</a> <a href="/tags/动画/" style="font-size: 15px;">动画</a> <a href="/tags/LAMP/" style="font-size: 15px;">LAMP</a> <a href="/tags/react-native/" style="font-size: 15px;">react-native</a> <a href="/tags/Distribution/" style="font-size: 15px;">Distribution</a> <a href="/tags/charles/" style="font-size: 15px;">charles</a> <a href="/tags/interview/" style="font-size: 15px;">interview</a> <a href="/tags/markdown/" style="font-size: 15px;">markdown</a> <a href="/tags/swift/" style="font-size: 15px;">swift</a> <a href="/tags/pug/" style="font-size: 15px;">pug</a> <a href="/tags/Style-Guide/" style="font-size: 15px;">Style Guide</a> <a href="/tags/计算机网络/" style="font-size: 15px;">计算机网络</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/ManagingMemory/">内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/05/react_native1/">React - Native 学习(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/02/KVC_KVO/">KVC与KVO</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/17/notes_swift/">Swift 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/15/pugAndSass/">pug和sass的使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/AFNetworking/">浅析AFNetworking（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/drawRect/">在视图上面自定义绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/05/charles/">Charles 入门</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/NSNotificationCenter/">NSNotificationCenter (通知中心)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/22/BugFix/">Undefined symbols for architecture x86_64等的完整解决方案</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//dbcxl.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://llissery.net/" title="llissery的博客" target="_blank">llissery的博客</a><ul></ul><a href="http://hyuni.cn/" title="hyuni的博客" target="_blank">hyuni的博客</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a rel="nofollow" target="_blank" href="https://github.com/KnightJoker">KnightJoker.</a>Touching my heart.</div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
