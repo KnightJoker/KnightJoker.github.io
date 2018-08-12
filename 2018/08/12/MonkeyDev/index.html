@@ -26,9 +26,9 @@
 <p>安装之后，再重启一下 Xcode 便可以使用 MonkeyDev 了。</p>
 <h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p><strong>在使用之前，需要准备好已经砸壳的 ipa 或者 app</strong></p>
 <p>然后打开你的 Xcode ，点击 <code>File - New - Project</code> 创建属于你的 MonkeyApp 。</p>
-<p><img src="./Img/Create_project.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/Create_project.png?raw=true" alt=""></p>
 <p>创建完成之后，你的工程文件就长这个样子：</p>
-<p><img src="./Img/Project_files.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/Project_files.png?raw=true" alt=""></p>
 <ul>
 <li><p><code>MTMonkeyDemoDylib</code> 这一整个文件下便是即将注入美拍的动态库</p>
 <ul>
@@ -43,12 +43,12 @@
 </ul>
 <p><strong>拖入编译</strong></p>
 <p>将你准备好的 ipa 文件（或者 app 文件夹）放入 <code>TargetApp</code> 目录下(<em>注意<code>put ipa or app here</code> 这个文件不要删除</em>)</p>
-<p><img src="./Img/IPA_path.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/IPA_path.png?raw=true" alt=""></p>
 <p>好了，到此前期的工作就结束了，直接编译运行到你的手机上就可以啦~</p>
 <p>编译过程中也可以使用个人开发者账号进行签名，记得 <code>MTMonkeyDemo</code> 和 <code>MTMonkeyDemoDylib</code> 选择一直证书即可。</p>
 <p><strong>编译成功</strong></p>
 <p>之后你就可以打开你电脑上面的 <code>Reveal</code>, 查看美拍的界面，进行实时修改并查看结果了。</p>
-<p><img src="./Img/meipai_ui.png" alt=""></p>
+<p><img src="https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/meipai_ui.png?raw=true" alt=""></p>
 <p>这里需要注意的是 Monkey 中集成的 <code>Reveal.framework</code> 是最新版本的，所以你可能需要最新版本的 Reveal，否则使用自己的<code>Reveal.framework</code> 替换掉 <code>/opt/MonkeyDev/frameworks</code>下面的 <code>Reveal.framework</code>。</p>
 <p>Reveal 是一个允许开发者在不修改代码、不重新构建项目、不重新部署应用程序的情况下就能够调试 iOS 应用界面的软件。 文末将会提供一个 Reveal 4 破译版本，仅供大家学习使用，如有需要请大家自行在<a href="http://revealapp.com/download/" target="_blank" rel="noopener">官网</a>下载最新版本使用。</p>
 <p><strong>或者从<a href="http://www.cycript.org/" target="_blank" rel="noopener">Cycript</a>下载SDK，然后进去SDK目录运行如下命令，Cycript查看界面</strong></p>
