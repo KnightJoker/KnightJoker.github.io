@@ -63,11 +63,11 @@ tags:
 
 然后打开你的 Xcode ，点击 `File - New - Project` 创建属于你的 MonkeyApp 。
 
-![](./Img/Create_project.png)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/Create_project.png?raw=true)
 
 创建完成之后，你的工程文件就长这个样子：
 
-![](./Img/Project_files.png)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/Project_files.png?raw=true)
 
 - `MTMonkeyDemoDylib` 这一整个文件下便是即将注入美拍的动态库
 
@@ -82,7 +82,7 @@ tags:
 
 将你准备好的 ipa 文件（或者 app 文件夹）放入 `TargetApp` 目录下(*注意`put ipa or app here` 这个文件不要删除*)
 
-![](./Img/IPA_path.png)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/IPA_path.png?raw=true)
 
 好了，到此前期的工作就结束了，直接编译运行到你的手机上就可以啦~
 
@@ -92,7 +92,7 @@ tags:
 
 之后你就可以打开你电脑上面的 `Reveal`, 查看美拍的界面，进行实时修改并查看结果了。
 
-![](./Img/meipai_ui.png)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/meipai_ui.png?raw=true)
 
 这里需要注意的是 Monkey 中集成的 `Reveal.framework` 是最新版本的，所以你可能需要最新版本的 Reveal，否则使用自己的`Reveal.framework` 替换掉 `/opt/MonkeyDev/frameworks`下面的 `Reveal.framework`。
 
