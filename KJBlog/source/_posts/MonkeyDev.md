@@ -2,7 +2,6 @@
 title: 无需越狱，自动集成的动态调试工具 —— MonkeyDev
 description: MonkeyDev,一套开源的逆向调试工具可以在非越狱或者越狱手机上任（♂）意地为应用添加插件。
 date: 2018/08/12 08:46:25
-isHidden: true
 categories: 
 - iOS
 tags:
