@@ -4,7 +4,7 @@ date: 2017/06/13 08:46:25
 categories: 
 - iOS
 tags:
-- AFNetworking
+- Networking
 
 ---
 
