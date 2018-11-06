@@ -46,14 +46,14 @@ tags:
 
 在经过一系列调研后，MTNetworkDebugger 决定通过 hook NSURLConnection、NSURLConnection 的创建方法，将 delegate 替换为 delegateProxy，来监听所有请求的各个过程。具体操作对应入下图：
 
-![](./Img/networkProcess.png)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/networkProcess.png?raw=true)
 
 (在 MTNetworkDebugger 中没有直接使用 Method swizzling 替换相关 Api 来完成此操作,因为替换方法需要指定类名，但是 NSURLConnectionDelegate 和 NSURLSessionDelegate 是由业务方指定，通常来说是不确定，所以在这种场景下使用一个 Proxy 来达到消息转发的目的。)
 
 
 关于 `NSURLConnection` 和 `NSURLSession` 我们都可以通过这样的方式去处理，具体以 Session 为例：
 
-![](./Img/urlsession.jpeg)
+![](https://github.com/KnightJoker/KnightJoker.github.io/blob/hexo/KJBlog/source/_posts/Img/urlsession.jpeg?raw=true)
 
 在进行 Hook 操作时，可以考虑在对应类创建时进行处理，这样可以避免后期进行遍历 Class List 和 Method List 等工作。
 
